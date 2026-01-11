@@ -7,4 +7,8 @@ services:
     environment:
       - POSTGRES_PASSWORD=S3cret
       - POSTGRES_USER=postgres
-     
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
