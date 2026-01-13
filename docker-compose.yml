@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: db
     image: postgres:latest
     restart: always
     ports:
@@ -10,8 +11,8 @@ services:
       - POSTGRES_USER=postgres
     volumes:
       - pgdata:/var/lib/postgresql     
-      - ./scripts/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
-      - ./scripts/files:/files
+      - ./scripts:/docker-entrypoint-initdb.d
+
 volumes:
   pgdata:
     driver: local
